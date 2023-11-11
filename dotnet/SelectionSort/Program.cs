@@ -1,36 +1,22 @@
-﻿// 1 2 3 4 5  2 3
+﻿void SortSelection(int[] collection)
+{
+    int size = collection.Length;
+    for (int i = 0; i < size - 1; i++)
+    {
+        int pos = i;
+        for (int j = i + 1; j < size; j++)
+        {
+            if (collection[j] < collection[pos])
+                pos = j;
+        }
+        int temp = collection[i];
+        collection[i] = collection[pos];
+        collection[pos] = temp;
+    }
+}
 
+int[] array = { 7, 6, 3, 4, 5, 1, 2, 3 };
 
-// MIN -> MAX
-// v
-// 0 1 2 3 4 5 6 7
-// 7 6 3 4 5 1 2 3  < 0
-//           ^
-// 1 6 3 4 5 7 2 3  < 1
-
-
-// 1 2 3 4 5 7 6 3  < 2
-
-//     v
-// 1 2 3 4 5 7 6 3  < 3
-//		 ^
-
-//       v
-// 1 2 3 3 5 7 6 4  < 4
-//               ^
-
-//         v
-// 1 2 3 3 4 7 6 5  < 5
-//               ^
-
-//           v
-// 1 2 3 3 4 5 6 7  < 6
-//               ^
-
-//             v
-// 1 2 3 3 4 5 6 7  < 7
-//               ^
-
-//               v
-// 1 2 3 3 4 5 6 7  < 8
-//
+Console.WriteLine($"[{String.Join(',', array)}]");
+SortSelection(array);
+Console.WriteLine($"[{String.Join(',', array)}]");
